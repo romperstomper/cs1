@@ -1,5 +1,7 @@
+import java.util.ArrayList;  
+import java.util.List;
 import java.util.Scanner;
-
+import javax.swing.JOptionPane;
 public class Numbers {
 
 	/**
@@ -8,22 +10,17 @@ public class Numbers {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-//	String inputnumber = JOptionPane.showInputDialog("What is the your number?"); 
-	Scanner inputScanner = new Scanner( System.in );
-	
-	System.out.print("enter ten numbers separated by spaces");
-	      int one = inputScanner.nextInt();
-	      int two = inputScanner.nextInt();
-	      int three = inputScanner.nextInt();
-	      int four = inputScanner.nextInt();
-	      int five = inputScanner.nextInt();
-	      int six = inputScanner.nextInt();
-	      inputScanner.close();
-	
-	           double average = ( one + two + three + four + five + six)/6 ;
-	
-	                 System.out.print(average);
-	
-
+		ArrayList<Double> numbers = new ArrayList<Double>();
+		
+	String oldmoneyInput = JOptionPane.showInputDialog(
+			"Please enter comma separated list of your old money e.g. pounds, shillings, pence");
+	Scanner oldmoneyScanner = new Scanner(oldmoneyInput);
+	oldmoneyScanner.useDelimiter(",");
+	int pounds = oldmoneyScanner.nextInt();
+	int shillings = oldmoneyScanner.nextInt();
+	int pence = oldmoneyScanner.nextInt();
+	double newmoney = (double) (pence*0.67 + shillings*12*0.67 + pounds*240*0.67);
+	 
+	JOptionPane.showMessageDialog(null, "Your money in Euro is " + newmoney);
           }
     }
